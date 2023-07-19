@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Stonks2.DAL.Models.ChatHub>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatHubName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatHubDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChatHubName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChatHubDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ChatHubId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ChatHubId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ChatHubId })
+        </td>
+    </tr>
+}
+
+</table>

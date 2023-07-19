@@ -21,7 +21,7 @@ namespace Stonks2Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("Stonks2Database", throwIfV1Schema: false)
         {
         }
 
