@@ -29,6 +29,8 @@ namespace Stonks2Web
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Stonks2.DAL.Models.ChatHub chatHub = db.ChatHubs.Find(id);
+            //Showing only last 50 messages
+            chatHub.Messages = chatHub.Messages.OrderByDescending(message => message.TimeStamp).Take(50).OrderBy(message => message.TimeStamp).ToList();
             if (chatHub == null)
             {
                 return HttpNotFound();

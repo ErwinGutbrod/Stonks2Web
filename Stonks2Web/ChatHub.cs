@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Stonks2.DAL.DataAccess;
 using Stonks2.DAL.Models;
+using Stonks2.StockBot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,23 @@ namespace Stonks2Web
 {
     public class ChatHub : Hub
     {
+        private IStockBot _stockBot;
+
+        public ChatHub(IStockBot stockBot)
+        {
+            _stockBot = stockBot;
+        }
+
         public void Send(int chatRoomId, string name, string message)
         {
             ChatRoomContext roomContext = new ChatRoomContext();
-            IStockBot stockBot = new StockBot();
             if (message.StartsWith("/"))
             {
                 name = "StockBot";
-                if (message.Substring(0,message.IndexOf('=')) == "/stock") {
+                if (message.IndexOf('=') > -1 && message.Substring(0,message.IndexOf('=')) == "/stock") {
                     try
                     {
-                        message = stockBot.CheckStock(message.Substring(message.IndexOf("=") + 1));
+                        message = _stockBot.CheckStock(message.Substring(message.IndexOf("=") + 1));
                     }
                     catch (Exception)
                     {

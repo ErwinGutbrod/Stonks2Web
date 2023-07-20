@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Headers;
 using System.Net.Http;
-using System.Security.Cryptography.Xml;
-using System.Security.Policy;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.Owin;
 using System.IO;
 using CsvHelper;
-using System.Threading.Tasks;
 using System.Globalization;
 
-namespace Stonks2Web
+namespace Stonks2.StockBot
 {
     public class StockBot : IStockBot
     {

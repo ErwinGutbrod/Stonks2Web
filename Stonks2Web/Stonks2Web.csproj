@@ -46,9 +46,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CsvHelper, Version=30.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
-      <HintPath>..\packages\CsvHelper.30.0.1\lib\net47\CsvHelper.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
@@ -223,15 +220,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IStockBot.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="ChatHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="StockBot.cs" />
-    <Compile Include="StooqRecord.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -346,6 +340,10 @@
     <ProjectReference Include="..\Stonks2.DAL\Stonks2.DAL.csproj">
       <Project>{ff5b6c99-5907-4982-a713-51c46c21066b}</Project>
       <Name>Stonks2.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stonks2.StockBot\Stonks2.StockBot.csproj">
+      <Project>{606d3652-9803-444c-8c95-615cf398a228}</Project>
+      <Name>Stonks2.StockBot</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
