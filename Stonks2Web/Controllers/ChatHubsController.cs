@@ -113,6 +113,7 @@ namespace Stonks2Web
         public ActionResult DeleteConfirmed(int id)
         {
             Stonks2.DAL.Models.ChatHub chatHub = db.ChatHubs.Find(id);
+            chatHub.Messages.Clear();
             db.ChatHubs.Remove(chatHub);
             db.SaveChanges();
             return RedirectToAction("Index");
